@@ -42,7 +42,7 @@ def synthesize(voice_prompt, text, output_path, eid=None):
             {"role": "user", "content": voice_prompt},
             {"role": "assistant", "content": text}
         ],
-        "audio": {"format": "wav", "optimize_text_preview": True}
+        "audio": {"format": "wav", "optimize_text_preview": False}
     }, ensure_ascii=False).encode('utf-8')
 
     # write request payload for debugging when eid provided
