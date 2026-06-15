@@ -3,12 +3,15 @@
 
 import csv, json, base64, os, sys, time, urllib.request
 from urllib.error import HTTPError, URLError
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())
+try:
+    from dotenv import load_dotenv, find_dotenv
+    load_dotenv(find_dotenv())
+except ImportError:
+    pass
 
 API_KEY = os.environ.get("MIMO_API_KEY", "")
-ENDPOINT = "https://api.xiaomimimo.com/v1/chat/completions"
-MODEL = "mimo-v2.5-tts-voicedesign"
+ENDPOINT = os.environ.get("MIMO_API_ENDPOINT", "https://api-oc.xiaomimimo.com/v1/chat/completions")
+MODEL = os.environ.get("MIMO_TTS_MODEL", "mimo-v2.5-tts")
 CSV_PATH = "./voices.csv"
 WAV_DIR = "./voices_wav"
 MAX_RETRIES = 3

@@ -1,3 +1,8 @@
 .env
 .vscode
 logs/*
+check_gender*.py
+fix_missing_fields.py
+gender_progress.json
+gender_*.json
+tts_w_*.json
